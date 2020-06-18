@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\RouterDetail;
+use App\RouterDetailView;
 use DB;
 class RouterDetailsController extends Controller
 {
@@ -176,5 +177,11 @@ class RouterDetailsController extends Controller
 
         return array_map('long2ip', range($start, $end) );
       }
+    }
+
+    public function generateView()
+    {
+        $generateData = RouterDetailView::get();
+        return view('router.sqlview', ['details' => $generateData]);
     }
 }

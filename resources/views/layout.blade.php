@@ -42,6 +42,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/api-showcase">Api Listing</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sql-view">Router SQL View</a>
+                </li>
             </ul>
         </div>
         </nav>

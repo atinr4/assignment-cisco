@@ -23,5 +23,7 @@ Route::get('/delete-details/{id}' , 'RouterDetailsController@deleteDetails');
 // Draw Shapes
 Route::get('/draw-shapes' , 'ShapeController@draw');
 
+Route::get('/sql-view' , 'RouterDetailsController@generateView');
+
 
 Route::view('/api-showcase', 'apiview.index');
