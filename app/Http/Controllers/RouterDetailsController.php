@@ -139,11 +139,22 @@ class RouterDetailsController extends Controller
 
     public function apiList(Request $request)
     {
-        $routerDetails = RouterDetail::paginate(10);
+        $routerDetails = RouterDetail::where('deleted_at', null);
         if ($request->has('ip_range')){
-            $ipRangeArray = $this->rangeResolver($request->get('ip_range'));
-            $routerDetails = RouterDetail::whereIn('loop_back', $ipRangeArray)->paginate(10);
+            if (strpos($request->get('ip_range'), '-') !== false) {
+                $ipRangeArray = $this->rangeResolver($request->get('ip_range'));
+                $routerDetails->whereIn('loop_back', $ipRangeArray);
+            } else {
+                $ipRangeArray = $request->get('ip_range');
+                $routerDetails->where('loop_back','LIKE', $request->get('ip_range').'%');
+            }
         }
+
+        if ($request->has('sapid')){
+            $routerDetails->where('sapid','LIKE', $request->get('sapid').'%');
+        }
+
+        $routerDetails = $routerDetails->paginate(10);
         
         return response()->json(['message' => 'Listing Successful', 'status' => 200, 'data'=>$routerDetails], 200);
     }

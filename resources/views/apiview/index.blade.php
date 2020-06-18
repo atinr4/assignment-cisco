@@ -81,8 +81,20 @@
             <p>For IP range</p>
             <code>
             {
-                "ip_range":"172.0.0.1-172.0.0.255"
+                "ip_range":"172.0.0.1-172.0.0.255", "sapid":"15516/202601681234"
             }
+            </code>
+            <br>
+            OR
+            <br>
+            <code>
+            { "ip_range":"172.0","sapid":"15516/202601681234" }
+            </code>
+            <br>
+            OR
+            <br>
+            <code>
+            { "sapid":"15516/202601681234" }
             </code>
         </li>
         <li><h5>Delete Data</h5>
