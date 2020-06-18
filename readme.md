@@ -35,4 +35,7 @@ Script Execution Command: php artisan script:execute
 Dynamic file and Zip creation command: php artisan zip:create {count}
 
 ```
+### Important Notes
+SQL View is called: routerView
 
+Application is mainly accisible by the navigation above other than the artisan commands
